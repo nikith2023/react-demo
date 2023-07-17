@@ -9,6 +9,15 @@ function ModalDialog(props) {
     const onChangeHandler = (areas) => {
         setAreas(areas);
     }
+    const customRender = (areaProps) => {
+      if (!areaProps.isChanging) {
+          return (
+              <div key={areaProps.areaNumber}>
+                  {areaProps.areaNumber}
+              </div>
+          );
+      }
+  };
   return (  
     <div className="App p-4">  
   <Modal show={props.open} onHide={props.modalClose}>  
@@ -19,7 +28,11 @@ function ModalDialog(props) {
   <Modal.Body>  
      <AreaSelector
             areas={areas}
+            customAreaRenderer={customRender}
             onChange={onChangeHandler}
+            debug={true}
+            maxAreas={1}
+            unit={'pixel'}
         >
             <img src={props.image} alt='my image' style={{width:"100%"}} />
         </AreaSelector>

@@ -5,3 +5,15 @@
 .h-100vh {
   min-height: 100vh;
 }
+.modal-dialog{
+  max-width: 90% !important;
+  width:90% !important;
+}
+
+.modal-body{
+  padding: 0 !important;
+}
+
+.modal-body > div{
+  width:100%;
+}
